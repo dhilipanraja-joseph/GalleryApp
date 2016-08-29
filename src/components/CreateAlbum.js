@@ -18,7 +18,7 @@ export default class CreateAlbum extends Component {
     return(
       <div>
         <form onSubmit={this.submit}>
-          <input value={this.state.name} onChange={e=>{this.setState({name : e.target.value})}} type="text"/>
+          <input placeholder="album name" value={this.state.name} onChange={e=>{this.setState({name : e.target.value})}} type="text"/>
           <button type="submit">Add Album</button>
         </form>
       </div>

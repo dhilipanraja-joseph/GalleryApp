@@ -19,8 +19,8 @@ export default class AddImage extends Component {
     let {album , imgurl} = this.state;
     return(
       <form onSubmit={this.submit}>
-        <input value={album} onChange={e=>{this.setState({ album : e.target.value})}} type="text"/><br/>
-        <input value={imgurl} onChange={e=>{this.setState({ imgurl : e.target.value})}} type="text"/><br/>
+        <input placeholder="Album" value={album} onChange={e=>{this.setState({ album : e.target.value})}} type="text"/><br/>
+        <input placeholder="imgurl" value={imgurl} onChange={e=>{this.setState({ imgurl : e.target.value})}} type="text"/><br/>
         <button type="submit">Add Image</button>
       </form>
     )
