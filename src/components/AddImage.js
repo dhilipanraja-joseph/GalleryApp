@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-
+import ImageActions from '../actions/ImageActions'
 
 export default class AddImage extends Component {
   constructor(){
@@ -12,8 +12,8 @@ export default class AddImage extends Component {
   }
   submit(e){
     e.preventDefault();
-
-    console.log('sate:',this.state);
+    ImageActions.addImage(this.state);
+    console.log('state:',this.state);
   }
   render(){
     let {album , imgurl} = this.state;
