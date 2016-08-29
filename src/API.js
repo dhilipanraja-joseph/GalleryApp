@@ -22,6 +22,17 @@ const API = {
             })
           })
           .catch(err=>console.log(err))
+  },
+  getAlbumImage(album){
+    axios.get(`/api/images/${album}`)
+          .then(res=>res.data)
+          .then(album=>{
+            AppDispatcher.dispatch({
+              type : 'GET_ALBUM',
+              album
+            })
+          })
+          .catch(err=>console.log(err))
   }
 }
 

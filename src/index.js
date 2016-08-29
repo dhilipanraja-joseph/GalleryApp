@@ -5,6 +5,8 @@ import App from './components/App'
 import ShowAlbums from './components/ShowAlbums'
 import AddImage from './components/AddImage'
 import CreateAlbum from './components/CreateAlbum'
+import ShowImages from './components/ShowImages'
+
 
 
 render(
@@ -13,6 +15,7 @@ render(
       <Route path="/albums" components={ShowAlbums}/>
       <Route path="/addimage" components={AddImage}/>
       <Route path="/addalbum" components={CreateAlbum}/>
+      <Route path="/showImages/" component={ShowImages}/>
     </Route>
   </Router>,
   document.getElementById('root')

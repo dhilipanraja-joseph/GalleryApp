@@ -1,6 +1,7 @@
 import React ,{Component} from 'react'
 import ImageActions from '../actions/ImageActions'
 import ImageStore from '../stores/ImageStore'
+import {Link } from 'react-router'
 
 export default class ShowAlbums extends Component {
   constructor(){
@@ -21,9 +22,15 @@ export default class ShowAlbums extends Component {
     this.setState({ albums : ImageStore.getAllAlbums() });
   }
   render(){
-    console.log(this.state.albums);
+    let albumLi = this.state.albums.map(album=>{
+      return (
+        <Link to={{pathname : '/showImages/' , query : {album : album.name}}}><li key={album._id}>{album.name}</li></Link>
+      )
+    })
     return(
-      <div>ShowAlbums</div>
+      <ul>
+        {albumLi}
+      </ul>
     )
   }
 }

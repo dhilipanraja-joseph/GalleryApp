@@ -10,6 +10,9 @@ class ImageStore extends EventEmitter{
           case 'ALL_ALBUMS':  _albums=action.albums;
                               this.emit('CHANGE');
                               break;
+          case 'GET_ALBUM':   _images=action.album;
+                              this.emit('CHANGE');
+                              break;
       }
     })
   }
@@ -24,6 +27,10 @@ class ImageStore extends EventEmitter{
 
   getAllAlbums(){
     return _albums;
+  }
+
+  getImages(){
+    return _images;
   }
 }
 
