@@ -6,6 +6,22 @@ const API = {
     axios.post('/api/images/addimage',img)
           .then(res=>res.data)
           .catch(err=>console.log(err))
+  },
+  createAlbum(album){
+    axios.post('/api/albums/addalbum',album)
+          .then(res=>res.data)
+          .catch(err=>console.log(err))
+  },
+  getAlbums(){
+    axios.get('/api/albums')
+          .then(res=>res.data)
+          .then(albums=>{
+            AppDispatcher.dispatch({
+              type : 'ALL_ALBUMS',
+              albums
+            })
+          })
+          .catch(err=>console.log(err))
   }
 }
 
