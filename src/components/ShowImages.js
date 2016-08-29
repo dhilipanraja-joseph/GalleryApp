@@ -10,6 +10,7 @@ export default class ShowImages extends Component {
     this.state={
       images : ImageStore.getImages()
     }
+    this._onChange = this._onChange.bind(this);
   }
   componentDidMount(){
     ImageStore.startListening(this._onChange);
@@ -26,7 +27,7 @@ export default class ShowImages extends Component {
             <tr key={image._id}>
               <td><img src={image.imgurl} width="150px" alt="NO IMAGE"/></td>
               <td>{image.createdAt}</td>
-              <td><button onClick={this.deletePet.bind(null,image._id)}>Delete</button>
+              <td><button>Delete</button>
                   </td>
             </tr>
           )
@@ -49,3 +50,4 @@ export default class ShowImages extends Component {
       )
 
   }
+}
