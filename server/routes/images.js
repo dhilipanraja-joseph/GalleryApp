@@ -16,6 +16,27 @@ router.post('/addimage',(req,res)=>{
   });
 });
 
+router.delete('/deleteimage/:id',(req,res)=>{
+  Image.findByIdAndRemove(req.params.id,(err,image)=>{
+    if(err || !image){
+      return res.status(400).send(err || 'Image not found.');
+    }else{
+      res.send('Deleted');
+    }
+  });
+});
+
+router.delete('/deleteAlbum/:album',(req,res)=>{
+  Image.remove({album : req.params.album},err=>{
+    res.status(err ? 400 : 200).send(err || "Album deleted" );
+  })
+});
+
+router.put('/:album/changeAlbumName/:newalbum',(req,res)=>{
+  Image.update({album : req.params.album},{album : req.params.newalbum},{multi : true},(err)=>{
+    res.status(err ? 400 : 200).send(err || "modified" );
+  });
+});
 
 
 module.exports = router;
